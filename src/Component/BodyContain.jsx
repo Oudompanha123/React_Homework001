@@ -1,7 +1,7 @@
 import React from 'react'
 import BandgeCard from './BandgeCard'
 import Card from './Card'
-import data from "../jsondata/data.json"
+import data from "../../data.json"
 import PopUpComponent from './PopUpComponent'
 import { useState } from 'react'
 import '../style/style.css'
@@ -14,6 +14,8 @@ function BodyContain() {
         console.log("Data from child component: ", data)
         setDataCard([...dataCard, {id : dataCard.length + 1, ...data}])
     }
+
+    console.log("Data Card: ", dataCard)
 
     function getCardId(id){
         console.log("Get ID from Card: ", id)

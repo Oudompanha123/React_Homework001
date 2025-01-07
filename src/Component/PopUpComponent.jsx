@@ -1,7 +1,7 @@
 
 import React,{ useState } from 'react';
 import { useRef } from 'react';
-import data from "../jsondata/data.json"
+import data from "../../data.json"
 
 function PopUpComponent({catchDataFromCard}) {
   
@@ -22,7 +22,9 @@ function PopUpComponent({catchDataFromCard}) {
   const handleChange = (e) => {
     e.preventDefault()
     const { name, value } = e.target;
+    console.log({ name, value })
     setFormData({...formData, [name]: value});
+    console.log("Form Data: ", formData)
   };
 
   const validate = () => {
@@ -43,7 +45,7 @@ function PopUpComponent({catchDataFromCard}) {
       console.log("Data from submit: ", formData) 
       catchDataFromCard(formData);
       document.getElementById('my_modal_form').close();
-      ref.current.reset();
+      ref.current.reset();      // clear input value
     } else {
       setErrors(errors);
     }
